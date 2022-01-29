@@ -1,48 +1,52 @@
-// document.getElementById('diposite-btn').addEventListener('click', function(){
 
-//     //update diposite
-//     const dipoInput = document.getElementById('input-diposite').value;
-//     const dipositTotal = document.getElementById('dipositText');
-//     dipositTotal.innerText = parseFloat(dipoInput) + parseFloat(dipositTotal.innerText) ;
+function addAmount(inputID, textValue) {
+    // input value
+    const inputAmount = document.getElementById(inputID);
+    const inputAmountValue = inputAmount.value;
+    const inputConvert = parseFloat(inputAmountValue);
+    console.log(inputConvert);
+    // innter text value
+    const dipositText1 = document.getElementById(textValue);
+    const textAmountValue = dipositText1.innerText;
+    const textConvert = parseFloat(textAmountValue);
+    console.log(textConvert);
+    // total
+    const totalAmount = inputConvert + textConvert;
 
-//     //update balance
-//     const balance = document.getElementById('balanceText');
-//     balance.innerText = parseFloat(dipoInput) + parseFloat(balance.innerText);
-// })
+    inputAmount.value = '';
+    return totalAmount;
+}
 
-//  //update withdraw
-// document.getElementById('widthDraw-btn').addEventListener('click', function(){
-        
-//     const widthInput = document.getElementById('input-widthDraw').value;
+document.getElementById('diposite-btn').addEventListener('click', function () {
 
-//     const widthdrawTotal = document.getElementById('widthdrowText');
-//     widthdrawTotal.innerText = parseFloat(widthInput) + parseFloat(widthdrawTotal.innerText);
+    //    const inputDiposite = document.getElementById('input-diposite');
+    //    const inputDipoValue = inputDiposite.value;
+    const inputDipoValue = addAmount('input-diposite','dipositText');
 
-//     //less balance
-//    const balanceAce = document.getElementById('balanceText');
-//    balanceAce.innerText = parseFloat(balanceAce.innerText) - parseFloat(widthInput);
-
-//    widthInput = '';
-// })
-document.getElementById('diposite-btn').addEventListener('click', function(){
-
-    const inputDiposite = document.getElementById('input-diposite');
-    const inputDipo = inputDiposite.value;
-
-    const dipoText = document.getElementById('dipositText');
-    dipoText.innerText = parseFloat(inputDipo) + parseFloat(dipoText.innerText);
+    // const dipositText1 = document.getElementById('dipositText');
+    // dipositText1.innerText = parseFloat(inputDipoValue) + parseFloat(dipositText1.innerText);
 
     const balanceText1 = document.getElementById('balanceText');
-    balanceText1.innerText = parseFloat(inputDipo) + parseFloat(balanceText1.innerText);
+    const balanceInner = balanceText1.innerText;
+    balanceText1.innerText = parseFloat(balanceInner) + parseFloat(inputDipoValue);
+
+    // inputDiposite.value = '';
 })
-document.getElementById('widthDraw-btn').addEventListener('click', function(){
-    const inputWidthDraw = document.getElementById('input-widthDraw');
-    const inputWidth = inputWidthDraw.value;
+document.getElementById('widthDraw-btn').addEventListener('click', function () {
 
-    const widthdrowText1 = document.getElementById('widthdrowText');
-    widthdrowText1.innerText = parseFloat(inputWidth) + parseFloat(widthdrowText1.innerText);
+    // const inputWidthDraw = document.getElementById('input-widthDraw');
+    // const inputWidthValue = inputWidthDraw.value;
+    const inputWidthValue = addAmount('input-widthDraw', 'widthdrowText');
 
-    const balanceText1 = document.getElementById('balanceText');
-    balanceText1.innerText = parseFloat(balanceText1.innerText) - parseFloat(inputWidth);
+    // const widthdrowText1 = document.getElementById('widthdrowText');
+    // const widthdrowInner = widthdrowText1.innerText;
+    // widthdrowText1.innerText = parseFloat(inputWidthValue) + parseFloat(widthdrowInner);
 
+    const balanceText2 = document.getElementById('balanceText');
+    const balanceInner3 = balanceText.innerText;
+    balanceText2.innerText = parseFloat(balanceInner3) - parseFloat(inputWidthValue);
+
+    // inputWidthDraw.value = '';
 })
+
+
